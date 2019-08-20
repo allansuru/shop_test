@@ -1,0 +1,36 @@
+<form>
+  <div class="container">
+    <mat-form-field class="form-input">
+      <input
+        matInput
+        formControlName="num-card"
+        required
+        placeholder="Número do cartão"
+      />
+      <mat-error>Por favor, informe um número de cartão válido</mat-error>
+    </mat-form-field>
+    <mat-form-field class="form-input">
+      <input matInput formControlName="name" required placeholder="Nome" />
+      <mat-error>Por favor, informe um nome</mat-error>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field class="form-input">
+      <input
+        matInput
+        formControlName="validate"
+        required
+        placeholder="Validade"
+      />
+      <mat-error>Por favor, informe a validade do cartão</mat-error>
+    </mat-form-field>
+    <mat-form-field class="form-input">
+      <input matInput formControlName="CVV" required placeholder="CVV" />
+      <mat-error>Por favor, informe o cvv do cartão</mat-error>
+    </mat-form-field>
+  </div>
+  <div>
+    <button mat-raised-button color="warn">CONTINUAR</button>
+  </div>
+</form>
