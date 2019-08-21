@@ -8,7 +8,7 @@ export interface ShopState {
   loading: boolean;
 }
 
-export const initialState: ShopState = {
+export const InitialState: ShopState = {
   creditCard: null,
   payment: [],
   loaded: false,
@@ -16,7 +16,7 @@ export const initialState: ShopState = {
 };
 
 export function reducer(
-  state = initialState,
+  state = InitialState,
   action: fromShop.ShopActions
 ): ShopState {
   switch (action.type) {
