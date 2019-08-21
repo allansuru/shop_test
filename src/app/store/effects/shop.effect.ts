@@ -6,6 +6,7 @@ import { map, catchError, switchMap } from "rxjs/operators";
 import { ShopService } from "src/app/services/shop.service";
 
 import * as fromShop from "../actions/shop.action";
+import { CreditCard } from "src/app/models/credit-card";
 
 @Injectable()
 export class ShopEffects {
@@ -25,7 +26,7 @@ export class ShopEffects {
   @Effect()
   createCreditCard = this.actions$.pipe(
     ofType(fromShop.CREATE_CREDIT_CARD),
-    switchMap(payload => {
+    switchMap(({ payload }: any) => {
       return this.shopService.saveCreditCard(payload).pipe(
         map(
           newCreditCard => new fromShop.CreateCreditCardSuccess(newCreditCard)

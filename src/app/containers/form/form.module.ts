@@ -4,7 +4,9 @@ import {
   MatFormFieldModule,
   MatButtonModule,
   MatInputModule,
-  MatSelectModule
+  MatSelectModule,
+  MatDatepickerModule,
+  MatNativeDateModule
 } from "@angular/material";
 import { FormComponent } from "./form.component";
 import { ReactiveFormsModule } from "@angular/forms";
@@ -17,8 +19,11 @@ import { ReactiveFormsModule } from "@angular/forms";
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     ReactiveFormsModule
   ],
+  providers: [MatDatepickerModule],
   exports: [MatButtonModule, MatFormFieldModule, MatInputModule, FormComponent]
 })
 export class FormModule {}

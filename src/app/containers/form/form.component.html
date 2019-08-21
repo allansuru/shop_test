@@ -19,9 +19,11 @@
       <input
         matInput
         formControlName="validate"
-        required
-        placeholder="Validade"
+        [matDatepicker]="picker"
+        placeholder="Validade do cartão"
       />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
       <mat-error>Por favor, informe a validade do cartão</mat-error>
     </mat-form-field>
     <mat-form-field class="form-input">
@@ -38,6 +40,12 @@
     <mat-error>Por favor, selecione uma forma de pagamento</mat-error>
   </mat-form-field>
   <div>
-    <button mat-raised-button color="warn">CONTINUAR</button>
+    <button
+      (click)="saveCardCredit(formCreditCard.value)"
+      mat-raised-button
+      color="warn"
+    >
+      CONTINUAR
+    </button>
   </div>
 </form>

@@ -10,10 +10,7 @@ export const selectShop = createSelector(
 
 export const selectPayment = createSelector(
   selectShop,
-  selectedState => {
-    debugger;
-    return selectedState.payment;
-  }
+  selectedState => selectedState.payment
 );
 
 export const selectCreditCard = createSelector(

@@ -52,20 +52,20 @@ export function reducer(
       };
     }
 
-    case fromShop.CREATE_CREDIT_CARD_FAIL: {
-      return {
-        ...state,
-        loading: false,
-        loaded: false
-      };
-    }
-
     case fromShop.CREATE_CREDIT_CARD_SUCCESS: {
       return {
         ...state,
         loading: false,
         loaded: true,
         creditCard: action.payload
+      };
+    }
+
+    case fromShop.CREATE_CREDIT_CARD_FAIL: {
+      return {
+        ...state,
+        loading: false,
+        loaded: false
       };
     }
   }
