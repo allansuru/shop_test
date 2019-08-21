@@ -96,10 +96,15 @@ export class FormComponent implements OnInit, OnDestroy {
     return this.formCreditCard.get("numCard");
   }
 
-  public formatNumCard = value => {
-    this.numCard.setValue(
-      this.utilitiesService.formatNumber(this.formCreditCard.value.numCard)
-    );
+  public formatNumCard = (value: string) => {
+    let isValid = false;
+    const regex = /^[0-9\s]*$/;
+    isValid = regex.test(value);
+    if (value && isValid)
+      return this.numCard.setValue(
+        this.utilitiesService.formatNumber(this.formCreditCard.value.numCard)
+      );
+    this.numCard.setValue(value.substring(0, value.length - 1));
   };
 
   private selectPayments = () =>
