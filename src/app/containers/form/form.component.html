@@ -3,8 +3,10 @@
     <mat-form-field class="form-input">
       <input
         matInput
+        maxlength="16"
         formControlName="numCard"
         required
+        (keyup)="formatNumCard($event.target.value)"
         placeholder="Número do cartão"
       />
       <mat-error>Por favor, informe um número de cartão válido</mat-error>

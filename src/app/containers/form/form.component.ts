@@ -4,7 +4,8 @@ import {
   FormBuilder,
   FormGroup,
   Validators,
-  FormControl
+  FormControl,
+  AbstractControl
 } from "@angular/forms";
 import { Store, select } from "@ngrx/store";
 import { ShopState } from "src/app/store/reducers/shop.reducer";
@@ -20,9 +21,9 @@ import {
   MAT_DATE_FORMATS
 } from "@angular/material/core";
 
-import { Moment } from "moment";
-import { MatDatepicker } from "@angular/material";
 import { parseToDayAndMoth } from "src/app/helpers";
+import { UtilitiesService } from "src/app/services/utilities.service";
+
 const moment = _moment;
 
 export const MY_FORMATS = {
@@ -42,9 +43,6 @@ export const MY_FORMATS = {
   templateUrl: "./form.component.html",
   styleUrls: ["./form.component.scss"],
   providers: [
-    // `MomentDateAdapter` can be automatically provided by importing `MomentDateModule` in your
-    // application's root module. We provide it at the component level here, due to limitations of
-    // our example generation script.
     {
       provide: DateAdapter,
       useClass: MomentDateAdapter,
@@ -66,7 +64,8 @@ export class FormComponent implements OnInit, OnDestroy {
 
   constructor(
     private formBuilder: FormBuilder,
-    public store: Store<ShopState>
+    public store: Store<ShopState>,
+    private utilitiesService: UtilitiesService
   ) {
     this.subscription = new Subscription();
   }
@@ -91,6 +90,16 @@ export class FormComponent implements OnInit, OnDestroy {
         })
       );
     }
+  };
+
+  get numCard(): AbstractControl {
+    return this.formCreditCard.get("numCard");
+  }
+
+  public formatNumCard = value => {
+    this.numCard.setValue(
+      this.utilitiesService.formatNumber(this.formCreditCard.value.numCard)
+    );
   };
 
   private selectPayments = () =>
