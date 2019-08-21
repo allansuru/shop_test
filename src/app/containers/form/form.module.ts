@@ -6,10 +6,12 @@ import {
   MatInputModule,
   MatSelectModule,
   MatDatepickerModule,
-  MatNativeDateModule
+  MatNativeDateModule,
+  MatDialogModule
 } from "@angular/material";
 import { FormComponent } from "./form.component";
 import { ReactiveFormsModule } from "@angular/forms";
+import { DialogOkComponent } from "./dialog-ok/dialog-ok.component";
 
 @NgModule({
   declarations: [FormComponent],
@@ -21,9 +23,11 @@ import { ReactiveFormsModule } from "@angular/forms";
     MatSelectModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule
   ],
   providers: [MatDatepickerModule],
-  exports: [MatButtonModule, MatFormFieldModule, MatInputModule, FormComponent]
+  exports: [MatButtonModule, MatFormFieldModule, MatInputModule, FormComponent],
+  entryComponents: [DialogOkComponent]
 })
 export class FormModule {}
