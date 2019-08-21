@@ -15,5 +15,5 @@ export const selectPayment = createSelector(
 
 export const selectCreditCard = createSelector(
   selectShop,
-  selectedState => selectedState.creditCard
+  selectedState => selectedState && selectedState.creditCard
 );

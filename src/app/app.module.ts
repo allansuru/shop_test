@@ -32,10 +32,10 @@ export const metaReducers: MetaReducer<any>[] = !environment.production
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    SharedModule,
     BrowserAnimationsModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     EffectsModule.forRoot(effects),
+    SharedModule,
     FormModule,
     environment.development ? StoreDevtoolsModule.instrument() : []
   ],
