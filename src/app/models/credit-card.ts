@@ -1,9 +1,9 @@
 export interface CreditCard {
-  numberCard: number;
-  name: string;
-  validate: Date;
-  cvv: number;
-  Quota: Payment[];
+  numCard?: any;
+  name?: string;
+  validate?: string;
+  cvv?: number;
+  Quota?: Payment[];
 }
 
 export interface Payment {
