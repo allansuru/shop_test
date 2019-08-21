@@ -1,13 +1,17 @@
 {
   "payment": [
     {
+      "id": 0,
       "value": "12x R$1.000,00 sem juros"
     },
     {
+      "id": 1,
       "value": "6x R$500,00 sem juros"
     },
     {
+      "id": 2,
       "value": "3x R$250,00 sem juros"
     }
-  ]
+  ],
+  "creditCard": []
 }

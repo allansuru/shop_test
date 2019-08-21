@@ -20,7 +20,7 @@ export class ShopService {
 
   saveCreditCard(payload: CreditCard): Observable<CreditCard> {
     return this.http
-      .post<CreditCard>(`creditCar`, payload)
+      .post<CreditCard>(`${API_MOCK}/creditCard`, payload)
       .pipe(catchError((error: any) => Observable.throwError(error.json())));
   }
 }

@@ -4,7 +4,7 @@ import { CreditCard, Payment } from "src/app/models/credit-card";
 export const CREATE_CREDIT_CARD = "[CREDIT-CARD] Create credit-card";
 export const CREATE_CREDIT_CARD_FAIL = "[CREDIT-CARD] Create credit-card Fail";
 export const CREATE_CREDIT_CARD_SUCCESS =
-  "[CREDIT-CARD] Create credit-card Fail";
+  "[CREDIT-CARD] Create credit-card Success";
 
 export const GET_PAYMENT = "[PAYMENT] Get payment";
 export const GET_PAYMENT_FAIL = "[PAYMENT] Get payment Fail";
