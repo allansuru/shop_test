@@ -1,9 +1,9 @@
-<form>
+<form [formGroup]="formCreditCard">
   <div class="container">
     <mat-form-field class="form-input">
       <input
         matInput
-        formControlName="num-card"
+        formControlName="numCard"
         required
         placeholder="Número do cartão"
       />
@@ -14,7 +14,6 @@
       <mat-error>Por favor, informe um nome</mat-error>
     </mat-form-field>
   </div>
-
   <div>
     <mat-form-field class="form-input">
       <input
@@ -26,10 +25,18 @@
       <mat-error>Por favor, informe a validade do cartão</mat-error>
     </mat-form-field>
     <mat-form-field class="form-input">
-      <input matInput formControlName="CVV" required placeholder="CVV" />
+      <input matInput formControlName="cvv" required placeholder="CVV" />
       <mat-error>Por favor, informe o cvv do cartão</mat-error>
     </mat-form-field>
   </div>
+  <mat-form-field>
+    <mat-select placeholder="Parcela" required formControlName="payment">
+      <mat-option *ngFor="let payment of listPayments" [value]="payment?.id">
+        {{ payment.value }}
+      </mat-option>
+    </mat-select>
+    <mat-error>Por favor, selecione uma forma de pagamento</mat-error>
+  </mat-form-field>
   <div>
     <button mat-raised-button color="warn">CONTINUAR</button>
   </div>

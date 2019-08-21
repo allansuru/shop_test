@@ -7,5 +7,6 @@ export interface CreditCard {
 }
 
 export interface Payment {
+  id: number;
   value: string;
 }
