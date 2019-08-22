@@ -12,6 +12,8 @@ export const GET_PAYMENT_SUCCESS = "[PAYMENT] Get payment Fail";
 
 export const SHOW_VALUES_CARD = "[VALUES CARD] Show values at card";
 
+export const FINISH = "[NAVIGATOR] Finish process";
+
 export class CreateCreditCard implements Action {
   readonly type = CREATE_CREDIT_CARD;
   constructor(public payload: CreditCard) {}
@@ -51,6 +53,10 @@ export class ShowValuesInCard implements Action {
   constructor(public payload: CreditCard) {}
 }
 
+export class FinishProcess implements Action {
+  readonly type = FINISH;
+}
+
 export type ShopActions =
   | CreateCreditCard
   | CreateCreditCardFail
@@ -58,4 +64,5 @@ export type ShopActions =
   | GetPayment
   | GetPaymentFail
   | GetPaymentSuccess
-  | ShowValuesInCard;
+  | ShowValuesInCard
+  | FinishProcess;

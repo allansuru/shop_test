@@ -7,6 +7,7 @@ export interface ShopState {
   loaded: boolean;
   loading: boolean;
   creditCardFake: CreditCard;
+  finishProcess: boolean;
 }
 
 export const InitialState: ShopState = {
@@ -14,7 +15,8 @@ export const InitialState: ShopState = {
   payment: [],
   loaded: false,
   loading: false,
-  creditCardFake: null
+  creditCardFake: null,
+  finishProcess: false
 };
 
 export function reducer(
@@ -75,6 +77,13 @@ export function reducer(
       return {
         ...state,
         creditCardFake: action.payload
+      };
+    }
+
+    case fromShop.FINISH: {
+      return {
+        ...state,
+        finishProcess: true
       };
     }
   }

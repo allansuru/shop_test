@@ -50,7 +50,10 @@
     </div>
     <mat-form-field>
       <mat-select placeholder="Parcela" required formControlName="payment">
-        <mat-option *ngFor="let payment of listPayments" [value]="payment?.id">
+        <mat-option
+          *ngFor="let payment of getPaymentSelector$ | async"
+          [value]="payment?.id"
+        >
           {{ payment.value }}
         </mat-option>
       </mat-select>
