@@ -7,6 +7,7 @@ import {
   selectCreditCard,
   selectCardFake
 } from "src/app/store/selectors/shop.selectors";
+import { parseToDayAndMoth } from "src/app/helpers";
 
 @Component({
   selector: "app-credit-card",
@@ -46,7 +47,16 @@ export class CreditCardComponent implements OnInit, OnDestroy {
   private getValuesFromForm = () => {
     this.subscription.add(
       this.getValuesToFakeCard$.subscribe((card: CreditCard) => {
-        this.setCreditCard(card);
+        if (card && card.validate) {
+          const formatValidate = parseToDayAndMoth(card.validate);
+          return this.setCreditCard({
+            ...card,
+            validate: formatValidate
+          });
+        }
+        this.setCreditCard({
+          ...card
+        });
       })
     );
   };
@@ -58,5 +68,7 @@ export class CreditCardComponent implements OnInit, OnDestroy {
       })
     );
 
-  private setCreditCard = (card: CreditCard) => (card = this.creditCard = card);
+  private setCreditCard = (card: CreditCard) => {
+    if (card) this.creditCard = card;
+  };
 }

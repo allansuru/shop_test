@@ -14,7 +14,7 @@ export const InitialState: ShopState = {
   payment: [],
   loaded: false,
   loading: false,
-  creditCardFake: {}
+  creditCardFake: null
 };
 
 export function reducer(
@@ -72,7 +72,6 @@ export function reducer(
     }
 
     case fromShop.SHOW_VALUES_CARD: {
-      debugger;
       return {
         ...state,
         creditCardFake: action.payload
