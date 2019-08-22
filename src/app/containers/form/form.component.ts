@@ -23,6 +23,8 @@ import {
 
 import { parseToDayAndMoth } from "src/app/helpers";
 import { UtilitiesService } from "src/app/services/utilities.service";
+import { MatDialog } from "@angular/material";
+import { DialogOkComponent } from "./dialog-ok/dialog-ok.component";
 
 const moment = _moment;
 
@@ -53,9 +55,8 @@ export const MY_FORMATS = {
   ]
 })
 export class FormComponent implements OnInit, OnDestroy {
-  date = new FormControl(moment());
-
   public listPayments: Payment[];
+  public save: boolean = false;
   public subscription: Subscription;
   public formCreditCard: FormGroup;
   public getPaymentSelector$ = this.store.pipe(
@@ -65,7 +66,8 @@ export class FormComponent implements OnInit, OnDestroy {
   constructor(
     private formBuilder: FormBuilder,
     public store: Store<ShopState>,
-    private utilitiesService: UtilitiesService
+    private utilitiesService: UtilitiesService,
+    public dialog: MatDialog
   ) {
     this.subscription = new Subscription();
   }
@@ -82,13 +84,7 @@ export class FormComponent implements OnInit, OnDestroy {
 
   public saveCardCredit = (newCreditCard: CreditCard) => {
     if (this.formCreditCard.valid) {
-      const formatValidate = parseToDayAndMoth(newCreditCard.validate);
-      this.store.dispatch(
-        new CreateCreditCard({
-          ...newCreditCard,
-          validate: formatValidate
-        })
-      );
+      this.openDialog(newCreditCard);
     }
   };
 
@@ -127,4 +123,24 @@ export class FormComponent implements OnInit, OnDestroy {
       cvv: ["", [Validators.required]],
       payment: ["", Validators.required]
     }));
+
+  openDialog(newCreditCard: CreditCard): void {
+    const dialogRef = this.dialog.open(DialogOkComponent, {
+      width: "250px"
+    });
+
+    dialogRef.afterClosed().subscribe(save => {
+      debugger;
+      if (save) {
+        const formatValidate = parseToDayAndMoth(newCreditCard.validate);
+        this.save = true;
+        this.store.dispatch(
+          new CreateCreditCard({
+            ...newCreditCard,
+            validate: formatValidate
+          })
+        );
+      }
+    });
+  }
 }

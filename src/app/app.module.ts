@@ -16,6 +16,7 @@ import { storeFreeze } from "ngrx-store-freeze";
 import { ShopService } from "./services/shop.service";
 import { HttpClientModule } from "@angular/common/http";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
+import { DialogOkComponent } from "./containers/form/dialog-ok/dialog-ok.component";
 
 const environment = {
   development: true,
@@ -27,7 +28,7 @@ export const metaReducers: MetaReducer<any>[] = !environment.production
   : [];
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent],
+  declarations: [AppComponent, HomeComponent, DialogOkComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
