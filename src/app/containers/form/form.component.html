@@ -4,7 +4,8 @@
       <mat-form-field class="form-input">
         <input
           matInput
-          maxlength="16"
+          maxlength="19"
+          minlength="19"
           formControlName="numCard"
           required
           (keyup)="formatNumCard(numCard, formCreditCard)"

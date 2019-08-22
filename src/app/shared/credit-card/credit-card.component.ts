@@ -18,7 +18,7 @@ export class CreditCardComponent implements OnInit, OnDestroy {
   public creditCard: CreditCard = {
     name: "NOME DO TITULAR",
     cvv: 0,
-    numCard: "**** **** **** *",
+    numCard: "**** **** **** ****",
     validate: "00/00"
   };
 

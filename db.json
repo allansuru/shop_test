@@ -14,6 +14,13 @@
     }
   ],
   "creditCard": [
-  
+    {
+      "numCard": "1212 1211 1111",
+      "name": "Allan Passos",
+      "validate": "22/08",
+      "cvv": "123",
+      "payment": 0,
+      "id": 1
+    }
   ]
 }
