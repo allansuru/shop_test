@@ -6,13 +6,15 @@ export interface ShopState {
   payment: Payment[];
   loaded: boolean;
   loading: boolean;
+  creditCardFake: CreditCard;
 }
 
 export const InitialState: ShopState = {
   creditCard: null,
   payment: [],
   loaded: false,
-  loading: false
+  loading: false,
+  creditCardFake: {}
 };
 
 export function reducer(
@@ -66,6 +68,14 @@ export function reducer(
         ...state,
         loading: false,
         loaded: false
+      };
+    }
+
+    case fromShop.SHOW_VALUES_CARD: {
+      debugger;
+      return {
+        ...state,
+        creditCardFake: action.payload
       };
     }
   }

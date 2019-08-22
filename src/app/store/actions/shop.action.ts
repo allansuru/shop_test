@@ -10,6 +10,8 @@ export const GET_PAYMENT = "[PAYMENT] Get payment";
 export const GET_PAYMENT_FAIL = "[PAYMENT] Get payment Fail";
 export const GET_PAYMENT_SUCCESS = "[PAYMENT] Get payment Fail";
 
+export const SHOW_VALUES_CARD = "[VALUES CARD] Show values at card";
+
 export class CreateCreditCard implements Action {
   readonly type = CREATE_CREDIT_CARD;
   constructor(public payload: CreditCard) {}
@@ -43,10 +45,17 @@ export class GetPaymentSuccess implements Action {
   constructor(public payload: Payment[]) {}
 }
 
+export class ShowValuesInCard implements Action {
+  readonly type = SHOW_VALUES_CARD;
+
+  constructor(public payload: CreditCard) {}
+}
+
 export type ShopActions =
   | CreateCreditCard
   | CreateCreditCardFail
   | CreateCreditCardSuccess
   | GetPayment
   | GetPaymentFail
-  | GetPaymentSuccess;
+  | GetPaymentSuccess
+  | ShowValuesInCard;

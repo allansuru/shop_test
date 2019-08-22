@@ -3,7 +3,10 @@ import { CreditCard } from "src/app/models/credit-card";
 import { Subscription } from "rxjs";
 import { Store, select } from "@ngrx/store";
 import { ShopState } from "src/app/store/reducers/shop.reducer";
-import { selectCreditCard } from "src/app/store/selectors/shop.selectors";
+import {
+  selectCreditCard,
+  selectCardFake
+} from "src/app/store/selectors/shop.selectors";
 
 @Component({
   selector: "app-credit-card",
@@ -23,11 +26,16 @@ export class CreditCardComponent implements OnInit, OnDestroy {
     select<ShopState, any, CreditCard>(selectCreditCard)
   );
 
+  public getValuesToFakeCard$ = this.store.pipe(
+    select<ShopState, any, CreditCard>(selectCardFake)
+  );
+
   constructor(public store: Store<ShopState>) {
     this.subscription = new Subscription();
   }
 
   ngOnInit() {
+    this.getValuesFromForm();
     this.getNewCreditCard();
   }
 
@@ -35,12 +43,20 @@ export class CreditCardComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
+  private getValuesFromForm = () => {
+    this.subscription.add(
+      this.getValuesToFakeCard$.subscribe((card: CreditCard) => {
+        this.setCreditCard(card);
+      })
+    );
+  };
+
   private getNewCreditCard = () =>
     this.subscription.add(
       this.getNewCreditCard$.subscribe((card: CreditCard) => {
-        if (card) {
-          this.creditCard = card;
-        }
+        this.setCreditCard(card);
       })
     );
+
+  private setCreditCard = (card: CreditCard) => (card = this.creditCard = card);
 }

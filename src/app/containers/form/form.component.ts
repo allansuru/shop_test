@@ -11,7 +11,7 @@ import { Store, select } from "@ngrx/store";
 import { ShopState } from "src/app/store/reducers/shop.reducer";
 import { selectPayment } from "src/app/store/selectors/shop.selectors";
 import { Subscription } from "rxjs";
-import { GetPayment, CreateCreditCard } from "src/app/store";
+import { GetPayment, CreateCreditCard, ShowValuesInCard } from "src/app/store";
 
 import * as _moment from "moment";
 import { MomentDateAdapter } from "@angular/material-moment-adapter";
@@ -100,10 +100,17 @@ export class FormComponent implements OnInit, OnDestroy {
     let isValid = false;
     const regex = /^[0-9\s]*$/;
     isValid = regex.test(value);
-    if (value && isValid)
-      return this.numCard.setValue(
+    if (value && isValid) {
+      this.numCard.setValue(
         this.utilitiesService.formatNumber(this.formCreditCard.value.numCard)
       );
+      return this.store.dispatch(
+        new ShowValuesInCard({
+          numCard: this.formCreditCard.value.numCard
+        })
+      );
+    }
+
     this.numCard.setValue(value.substring(0, value.length - 1));
   };
 

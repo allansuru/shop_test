@@ -17,3 +17,8 @@ export const selectCreditCard = createSelector(
   selectShop,
   selectedState => selectedState && selectedState.creditCard
 );
+
+export const selectCardFake = createSelector(
+  selectShop,
+  selectedState => selectedState && selectedState.creditCardFake
+);
