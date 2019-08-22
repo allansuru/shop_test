@@ -1,6 +1,19 @@
 <h4>
-  <i class="check circle icon"></i>Carrinho <i class="angle right icon"></i>
-  <i>2</i> Pagamento
+  <i class="check circle icon green"></i>Carrinho
   <i class="angle right icon"></i>
-  <i>3</i> Confirmação
+  <i
+    class="check circle icon"
+    [ngStyle]="{
+      color: isFinish ? '#21ba45' : 'red'
+    }"
+  ></i>
+  Pagamento
+  <i class="angle right icon"></i>
+  <i
+    class="check circle icon"
+    [ngStyle]="{
+      color: isFinish ? '#21ba45' : 'red'
+    }"
+  ></i>
+  Confirmação
 </h4>

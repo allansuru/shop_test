@@ -4,14 +4,18 @@ import {
   FormBuilder,
   FormGroup,
   Validators,
-  FormControl,
   AbstractControl
 } from "@angular/forms";
 import { Store, select } from "@ngrx/store";
 import { ShopState } from "src/app/store/reducers/shop.reducer";
 import { selectPayment } from "src/app/store/selectors/shop.selectors";
 import { Subscription } from "rxjs";
-import { GetPayment, CreateCreditCard, ShowValuesInCard } from "src/app/store";
+import {
+  GetPayment,
+  CreateCreditCard,
+  ShowValuesInCard,
+  FinishProcess
+} from "src/app/store";
 
 import * as _moment from "moment";
 import { MomentDateAdapter } from "@angular/material-moment-adapter";
@@ -73,7 +77,6 @@ export class FormComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.setValidators();
     this.store.dispatch(new GetPayment());
-    this.selectPayments();
   }
 
   ngOnDestroy() {
@@ -125,11 +128,6 @@ export class FormComponent implements OnInit, OnDestroy {
     }
   };
 
-  private selectPayments = () =>
-    this.subscription.add(
-      this.getPaymentSelector$.subscribe(item => (this.listPayments = item))
-    );
-
   private setValidators = () =>
     (this.formCreditCard = this.formBuilder.group({
       numCard: ["", [Validators.required]],
@@ -146,9 +144,9 @@ export class FormComponent implements OnInit, OnDestroy {
 
     dialogRef.afterClosed().subscribe(save => {
       if (save) {
-        debugger;
         const formatValidate = parseToDayAndMoth(newCreditCard.validate);
         this.save = true;
+        this.store.dispatch(new FinishProcess());
         this.store.dispatch(
           new CreateCreditCard({
             ...newCreditCard,

@@ -54,9 +54,10 @@ export class CreditCardComponent implements OnInit, OnDestroy {
             validate: formatValidate
           });
         }
-        this.setCreditCard({
-          ...card
-        });
+        if (card)
+          this.setCreditCard({
+            ...card
+          });
       })
     );
   };
