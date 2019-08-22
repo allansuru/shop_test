@@ -7,13 +7,19 @@
           maxlength="16"
           formControlName="numCard"
           required
-          (keyup)="formatNumCard($event.target.value)"
+          (keyup)="formatNumCard(numCard, formCreditCard)"
           placeholder="Número do cartão"
         />
         <mat-error>Por favor, informe um número de cartão válido</mat-error>
       </mat-form-field>
       <mat-form-field class="form-input">
-        <input matInput formControlName="name" required placeholder="Nome" />
+        <input
+          (keyup)="onHandlerName(formCreditCard)"
+          matInput
+          formControlName="name"
+          required
+          placeholder="Nome"
+        />
         <mat-error>Por favor, informe um nome</mat-error>
       </mat-form-field>
     </div>
@@ -24,6 +30,7 @@
           formControlName="validate"
           [matDatepicker]="picker"
           placeholder="Validade do cartão"
+          (dateChange)="onHandlerValidate(formCreditCard)"
         />
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
@@ -31,6 +38,7 @@
       </mat-form-field>
       <mat-form-field class="form-input">
         <input
+          (keyup)="onHandlerCVV(formCreditCard)"
           matInput
           maxlength="3"
           formControlName="cvv"

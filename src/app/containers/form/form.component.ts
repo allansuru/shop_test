@@ -11,7 +11,7 @@ import { Store, select } from "@ngrx/store";
 import { ShopState } from "src/app/store/reducers/shop.reducer";
 import { selectPayment } from "src/app/store/selectors/shop.selectors";
 import { Subscription } from "rxjs";
-import { GetPayment, CreateCreditCard } from "src/app/store";
+import { GetPayment, CreateCreditCard, ShowValuesInCard } from "src/app/store";
 
 import * as _moment from "moment";
 import { MomentDateAdapter } from "@angular/material-moment-adapter";
@@ -25,8 +25,6 @@ import { parseToDayAndMoth } from "src/app/helpers";
 import { UtilitiesService } from "src/app/services/utilities.service";
 import { MatDialog } from "@angular/material";
 import { DialogOkComponent } from "./dialog-ok/dialog-ok.component";
-
-const moment = _moment;
 
 export const MY_FORMATS = {
   parse: {
@@ -82,25 +80,49 @@ export class FormComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
-  public saveCardCredit = (newCreditCard: CreditCard) => {
-    if (this.formCreditCard.valid) {
-      this.openDialog(newCreditCard);
-    }
-  };
-
   get numCard(): AbstractControl {
     return this.formCreditCard.get("numCard");
   }
 
-  public formatNumCard = (value: string) => {
-    let isValid = false;
+  public formatNumCard = ({ value }: { value: string }, newCreditCard) => {
+    const isValid = this.verifyIfIsValid(value);
+    if (!isValid) {
+      return this.numCard.setValue(value.substring(0, value.length - 1));
+    }
+    this.numCard.setValue(this.utilitiesService.formatNumber(value));
+    this.setDispatch(newCreditCard);
+  };
+
+  private verifyIfIsValid = (value: string): boolean => {
     const regex = /^[0-9\s]*$/;
-    isValid = regex.test(value);
-    if (value && isValid)
-      return this.numCard.setValue(
-        this.utilitiesService.formatNumber(this.formCreditCard.value.numCard)
-      );
-    this.numCard.setValue(value.substring(0, value.length - 1));
+    return regex.test(value);
+  };
+
+  get name(): AbstractControl {
+    return this.formCreditCard.get("name");
+  }
+
+  public onHandlerName = newCreditCard => this.setDispatch(newCreditCard);
+
+  get validate(): AbstractControl {
+    return this.formCreditCard.get("validate");
+  }
+
+  public onHandlerValidate = newCreditCard => this.setDispatch(newCreditCard);
+
+  get cvv(): AbstractControl {
+    return this.formCreditCard.get("cvv");
+  }
+
+  public onHandlerCVV = newCreditCard => this.setDispatch(newCreditCard);
+
+  private setDispatch = ({ value }) =>
+    this.store.dispatch(new ShowValuesInCard({ ...value }));
+
+  public saveCardCredit = (newCreditCard: CreditCard) => {
+    if (this.formCreditCard.valid) {
+      this.openDialog(newCreditCard);
+    }
   };
 
   private selectPayments = () =>
@@ -123,8 +145,8 @@ export class FormComponent implements OnInit, OnDestroy {
     });
 
     dialogRef.afterClosed().subscribe(save => {
-      debugger;
       if (save) {
+        debugger;
         const formatValidate = parseToDayAndMoth(newCreditCard.validate);
         this.save = true;
         this.store.dispatch(
