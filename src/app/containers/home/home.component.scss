@@ -1,5 +1,72 @@
-.backgroud {
-  background: #de4b4b 0% 0% no-repeat padding-box;
-  opacity: 1;
-  min-height: 10000px;
+.content {
+  max-width: 1200px;
+  margin: auto;
+
+  .five.wide.column {
+    background: #de4b4b;
+    height: 1000px;
+    h4.forma-pagamento {
+      position: relative;
+      top: 20px;
+      color: white;
+      font-weight: 100;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    h2.new-card-title {
+      top: 70px;
+      display: flex;
+      position: relative;
+      text-align: center;
+      font-size: 24px;
+      color: white;
+      width: 280px;
+      left: 95px;
+    }
+  }
+
+  .sixteen.wide.column {
+    position: relative;
+    left: 100px;
+    top: 10px;
+    margin-bottom: 30px;
+  }
+
+  .eleven.wide.column {
+    background-color: white;
+
+    .elements {
+      position: relative;
+      margin-left: 200px;
+      top: 17px;
+    }
+  }
 }
+
+// .container.home {
+//   background: #f7f7f7 0% 0% no-repeat padding-box;
+
+//   .backgroud {
+//     background: #de4b4b 0% 0% no-repeat padding-box;
+//     opacity: 1;
+//     min-height: 10000px;
+//     width: 700px;
+//   }
+
+// }
+
+// h2.ui.header {
+//   position: relative;
+//   left: 100px;
+//   padding: 15px;
+// }
+// .content-title {
+//   span.title-demo {
+//     font-weight: 200;
+//   }
+
+//   span.title-title {
+//     font-weight: 600;
+//   }
+// }

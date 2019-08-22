@@ -139,7 +139,7 @@ export class FormComponent implements OnInit, OnDestroy {
 
   openDialog(newCreditCard: CreditCard): void {
     const dialogRef = this.dialog.open(DialogOkComponent, {
-      width: "250px"
+      width: "450px"
     });
 
     dialogRef.afterClosed().subscribe(save => {

@@ -202,3 +202,10 @@ body {
   -webkit-transform: rotateY(0deg);
   -moz-transform: rotateY(0deg);
 }
+
+.card {
+  position: relative;
+  top: 100px;
+  z-index: 9999;
+  left: 100px;
+}
