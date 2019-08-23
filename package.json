@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "server": "ts-node ./server/server.ts",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -49,13 +50,13 @@
     "jasmine-spec-reporter": "~4.2.1",
     "json-server": "^0.15.0",
     "karma": "~4.0.0",
-    "ngrx-store-freeze": "^0.2.0",
     "karma-chrome-launcher": "~2.2.0",
     "karma-coverage-istanbul-reporter": "~2.0.1",
     "karma-jasmine": "~1.1.2",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "ngrx-store-freeze": "^0.2.0",
     "protractor": "~5.4.0",
-    "ts-node": "~7.0.0",
+    "ts-node": "^7.0.1",
     "tslint": "~5.11.0",
     "typescript": "~3.5.3"
   }
