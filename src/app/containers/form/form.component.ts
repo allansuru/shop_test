@@ -17,7 +17,6 @@ import {
   FinishProcess
 } from "src/app/store";
 
-import * as _moment from "moment";
 import { MomentDateAdapter } from "@angular/material-moment-adapter";
 import {
   DateAdapter,
@@ -61,6 +60,7 @@ export class FormComponent implements OnInit, OnDestroy {
   public save: boolean = false;
   public subscription: Subscription;
   public formCreditCard: FormGroup;
+  public minDate: Date;
   public getPaymentSelector$ = this.store.pipe(
     select<ShopState, any, Payment[]>(selectPayment)
   );
@@ -75,6 +75,7 @@ export class FormComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.minDate = new Date();
     this.setValidators();
     this.store.dispatch(new GetPayment());
   }
@@ -139,7 +140,7 @@ export class FormComponent implements OnInit, OnDestroy {
 
   openDialog(newCreditCard: CreditCard): void {
     const dialogRef = this.dialog.open(DialogOkComponent, {
-      width: "250px"
+      width: "450px"
     });
 
     dialogRef.afterClosed().subscribe(save => {

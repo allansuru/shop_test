@@ -7,7 +7,8 @@ import {
   MatSelectModule,
   MatDatepickerModule,
   MatNativeDateModule,
-  MatDialogModule
+  MatDialogModule,
+  MatTooltipModule
 } from "@angular/material";
 import { FormComponent } from "./form.component";
 import { ReactiveFormsModule } from "@angular/forms";
@@ -24,7 +25,8 @@ import { DialogOkComponent } from "./dialog-ok/dialog-ok.component";
     MatDatepickerModule,
     MatNativeDateModule,
     ReactiveFormsModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTooltipModule
   ],
   providers: [MatDatepickerModule],
   exports: [MatButtonModule, MatFormFieldModule, MatInputModule, FormComponent],

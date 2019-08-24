@@ -1,75 +1,95 @@
 <div *ngIf="!save; else saveOk">
-  <form [formGroup]="formCreditCard">
+  <form class="form-card" [formGroup]="formCreditCard">
     <div class="container">
-      <mat-form-field class="form-input">
+      <mat-form-field style="width:400px" class="form-input numCard">
         <input
           matInput
-          maxlength="16"
+          maxlength="19"
+          minlength="19"
           formControlName="numCard"
           required
           (keyup)="formatNumCard(numCard, formCreditCard)"
           placeholder="Número do cartão"
         />
-        <mat-error>Por favor, informe um número de cartão válido</mat-error>
+        <mat-error>Número de cartão inválido</mat-error>
       </mat-form-field>
-      <mat-form-field class="form-input">
+      <mat-form-field style="width:400px" class="form-input name">
         <input
           (keyup)="onHandlerName(formCreditCard)"
           matInput
           formControlName="name"
+          minlength="4"
           required
-          placeholder="Nome"
+          placeholder="Nome (igual ao cartão)"
         />
-        <mat-error>Por favor, informe um nome</mat-error>
+        <mat-error>Insira seu nome completo</mat-error>
       </mat-form-field>
-    </div>
-    <div>
-      <mat-form-field class="form-input">
-        <input
-          matInput
-          formControlName="validate"
-          [matDatepicker]="picker"
-          placeholder="Validade do cartão"
-          (dateChange)="onHandlerValidate(formCreditCard)"
-        />
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-        <mat-error>Por favor, informe a validade do cartão</mat-error>
-      </mat-form-field>
-      <mat-form-field class="form-input">
-        <input
-          (keyup)="onHandlerCVV(formCreditCard)"
-          matInput
-          maxlength="3"
-          formControlName="cvv"
-          required
-          placeholder="CVV"
-        />
-        <mat-error>Por favor, informe o cvv do cartão</mat-error>
-      </mat-form-field>
-    </div>
-    <mat-form-field>
-      <mat-select placeholder="Parcela" required formControlName="payment">
-        <mat-option
-          *ngFor="let payment of getPaymentSelector$ | async"
-          [value]="payment?.id"
+
+      <div class="columns">
+        <mat-form-field style="margin-right: 15px;" class="form-input ">
+          <input
+            matInput
+            [min]="minDate"
+            formControlName="validate"
+            [matDatepicker]="picker"
+            placeholder="Validade do cartão"
+            (dateChange)="onHandlerValidate(formCreditCard)"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error>Data inválida</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="form-input cvv">
+          <input
+            (keyup)="onHandlerCVV(formCreditCard)"
+            matInput
+            minlength="3"
+            maxlength="3"
+            formControlName="cvv"
+            required
+            placeholder="CVV"
+          />
+          <mat-error>Código inválido</mat-error>
+        </mat-form-field>
+        <i
+          class="icon-obs"
+          mat-raised-button
+          matTooltip="código de verificação do cartão"
+          matTooltipPosition="right"
         >
-          {{ payment.value }}
-        </mat-option>
-      </mat-select>
-      <mat-error>Por favor, selecione uma forma de pagamento</mat-error>
-    </mat-form-field>
-    <div>
-      <button
-        (click)="saveCardCredit(formCreditCard.value)"
-        mat-raised-button
-        color="warn"
-      >
-        CONTINUAR
-      </button>
+          <i class="info circle icon"></i>
+        </i>
+      </div>
+      <mat-form-field class="form-input payment" style="width:400px">
+        <mat-select placeholder="Parcela" required formControlName="payment">
+          <mat-option
+            *ngFor="let payment of getPaymentSelector$ | async"
+            [value]="payment?.id"
+          >
+            {{ payment.value }}
+          </mat-option>
+        </mat-select>
+        <mat-error>Insira o número de parcelas</mat-error>
+      </mat-form-field>
+      <div class="btn-save">
+        <button
+          style="width: 246px;"
+          (click)="saveCardCredit(formCreditCard.value)"
+          mat-raised-button
+          color="warn"
+        >
+          CONTINUAR
+        </button>
+      </div>
     </div>
   </form>
 </div>
 <ng-template #saveOk>
-  <h1>Cartão salvo com Sucesso!</h1>
+  <div class="ui floating message">
+    <h1>Cartão salvo com Sucesso!</h1>
+  </div>
 </ng-template>

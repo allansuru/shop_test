@@ -16,7 +16,6 @@ export class NavigatorComponent {
   public getNavigatorStatus$ = this.store
     .pipe(select<ShopState, any, boolean>(selectFinish))
     .subscribe(isFinish => {
-      debugger;
       this.isFinish = isFinish;
     });
 }

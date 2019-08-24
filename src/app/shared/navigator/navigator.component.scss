@@ -1,0 +1,16 @@
+.container.navigator {
+  display: flex;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+
+  i.angle.right.icon {
+    margin-left: 30px;
+  }
+}
+
+@media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) {
+  .container.navigator {
+    display: none;
+  }
+}

@@ -1,8 +1,21 @@
-<h1 mat-dialog-title>Deseja salvar?</h1>
-
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">Cancelar</button>
-  <button mat-button (click)="onSave()" cdkFocusInitial>
-    Ok
-  </button>
+<div class="container">
+  <h1 mat-dialog-title>Deseja salvar?</h1>
+  <div class="dialog-btns" mat-dialog-actions>
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="onSave()"
+      cdkFocusInitial
+    >
+      Ok
+    </button>
+    <button
+      mat-raised-button
+      color="warn"
+      style="margin: 1px"
+      (click)="onNoClick()"
+    >
+      Cancelar
+    </button>
+  </div>
 </div>

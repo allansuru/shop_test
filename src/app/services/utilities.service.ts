@@ -6,7 +6,7 @@ import { Injectable } from "@angular/core";
 export class UtilitiesService {
   formatNumber = value => {
     var v = value.replace(/\s+/g, "").replace(/[^0-9]/gi, "");
-    var matches = v.match(/\d{4,16}/g);
+    var matches = v.match(/\d{4,20}/g);
     var match = (matches && matches[0]) || "";
     var parts = [];
 
