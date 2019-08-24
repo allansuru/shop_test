@@ -29,6 +29,14 @@
   left: 159px;
   position: relative;
 }
+
+p.register-success {
+  font-size: 30px;
+  width: 346px;
+  color: #21ba45;
+  display: flex;
+  text-align: center;
+}
 @media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) {
   .container {
     left: 35px;
@@ -68,5 +76,11 @@
 
   .btn-save {
     left: 30px;
+  }
+
+  .ui.massive.label {
+    top: 10px;
+    position: relative;
+    margin-top: 80px;
   }
 }
