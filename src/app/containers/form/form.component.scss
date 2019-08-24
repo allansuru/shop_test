@@ -11,4 +11,62 @@
   .container > * {
     width: 100%;
   }
+  i.icon-obs {
+    position: relative;
+    right: 20px;
+    color: gray;
+  }
+}
+
+::ng-deep .mat-form-field-infix {
+  margin-top: 15px;
+}
+
+.btn-save {
+  display: flex;
+  flex-direction: column;
+  top: 20px;
+  left: 159px;
+  position: relative;
+}
+@media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) {
+  .container {
+    left: 35px;
+    top: 20px;
+    position: relative;
+
+    form.form-card {
+      position: relative;
+      top: 60px;
+      right: 84px;
+
+      ::ng-deep .mat-form-field {
+        width: 40% !important;
+      }
+    }
+  }
+
+  ::ng-deep .mat-form-field-infix {
+    width: 135px !important;
+  }
+
+  ::ng-deep mat-form-field.form-input.numCard {
+    width: 300px !important;
+  }
+
+  ::ng-deep mat-form-field.form-input.numCard {
+    width: 300px !important;
+  }
+
+  ::ng-deep mat-form-field.form-input.name {
+    width: 300px !important;
+  }
+
+  ::ng-deep mat-form-field.form-input.payment {
+    width: 300px !important;
+  }
+
+  .btn-save {
+    left: 30px;
+  }
 }

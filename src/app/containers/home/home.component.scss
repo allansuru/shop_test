@@ -2,6 +2,10 @@
   max-width: 1200px;
   margin: auto;
 
+  .forma-pagamento.mobile {
+    display: none;
+  }
+
   .five.wide.column {
     background: #de4b4b;
     height: 1000px;
@@ -29,7 +33,7 @@
   .sixteen.wide.column {
     position: relative;
     left: 100px;
-    top: 10px;
+    top: 30px;
     margin-bottom: 30px;
   }
 
@@ -38,35 +42,57 @@
 
     .elements {
       position: relative;
-      margin-left: 200px;
+      margin-left: 100px;
       top: 17px;
     }
   }
 }
+@media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) {
+  .content {
+    .five.wide.column {
+      position: relative;
+      height: 215px;
+      width: 100% !important;
+      h4.forma-pagamento {
+        top: 1px !important;
+      }
+    }
+    .eleven.wide.column {
+      width: 100% !important;
+      height: 700px !important;
 
-// .container.home {
-//   background: #f7f7f7 0% 0% no-repeat padding-box;
+      .elements {
+        margin: 0px;
+        top: 50px;
+      }
+    }
+    .sixteen.wide.column {
+      display: none !important;
+    }
 
-//   .backgroud {
-//     background: #de4b4b 0% 0% no-repeat padding-box;
-//     opacity: 1;
-//     min-height: 10000px;
-//     width: 700px;
-//   }
+    h2.new-card-title {
+      font-size: 17px !important;
+      top: 2px !important;
+      width: 200px !important;
+    }
 
-// }
+    .forma-pagamento {
+      display: none;
+    }
 
-// h2.ui.header {
-//   position: relative;
-//   left: 100px;
-//   padding: 15px;
-// }
-// .content-title {
-//   span.title-demo {
-//     font-weight: 200;
-//   }
-
-//   span.title-title {
-//     font-weight: 600;
-//   }
-// }
+    .forma-pagamento.mobile {
+      display: flex;
+      justify-content: center;
+      top: 1px;
+      span.mobile-phase {
+        font-size: 17px;
+        font-weight: bold;
+        margin-right: 5px;
+      }
+      span.mobile-phase-2 {
+        position: relative;
+        top: 2px;
+      }
+    }
+  }
+}

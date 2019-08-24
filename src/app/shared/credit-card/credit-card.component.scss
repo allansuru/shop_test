@@ -209,3 +209,10 @@ body {
   z-index: 9999;
   left: 100px;
 }
+
+@media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) {
+  .card {
+    top: 5px;
+    left: 20px;
+  }
+}
