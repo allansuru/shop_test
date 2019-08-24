@@ -13,7 +13,7 @@ export class ShopEffects {
   constructor(private actions$: Actions, private shopService: ShopService) {}
 
   @Effect()
-  loadPayment = this.actions$.pipe(
+  loadPayment$ = this.actions$.pipe(
     ofType(fromShop.GET_PAYMENT),
     switchMap(() => {
       return this.shopService.getPaymentsParceling().pipe(
@@ -24,7 +24,7 @@ export class ShopEffects {
   );
 
   @Effect()
-  createCreditCard = this.actions$.pipe(
+  createCreditCard$ = this.actions$.pipe(
     ofType(fromShop.CREATE_CREDIT_CARD),
     switchMap(({ payload }: any) => {
       return this.shopService.saveCreditCard(payload).pipe(

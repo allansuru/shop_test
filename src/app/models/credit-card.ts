@@ -3,7 +3,7 @@ export interface CreditCard {
   name?: string;
   validate?: string;
   cvv?: number;
-  Quota?: Payment[];
+  payment?: Payment;
 }
 
 export interface Payment {
