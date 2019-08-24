@@ -5,15 +5,17 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 Esse projeto trata-se de um pequeno demo "Adicionando um novo cartão de crédito" utilizando as tecnologias abaixo!
 
 - Angular,
-- Server Fake (jsonServer)
+- Camada Server-Side
 - Angular Material
 - Redux
-- Testes Unitários na camada do State
+- Testes automatizados na camada do State
 - Site Responsivo (Galaxy)
 
 # Imagens do Projeto
 
-![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+![alt text](https://github.com/allansuru/shop_test/blob/master/server/images/tela_normal.png)
+
+# Rodando o Projeto
 
 ## Development server
 
