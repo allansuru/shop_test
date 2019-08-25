@@ -9,11 +9,6 @@ import { MatDialogRef } from "@angular/material";
 export class DialogOkComponent {
   constructor(public dialogRef: MatDialogRef<DialogOkComponent>) {}
 
-  public onNoClick(): void {
-    this.dialogRef.close();
-  }
-
-  public onSave(): void {
-    this.dialogRef.close("save");
-  }
+  public onNoClick = (): void => this.dialogRef.close();
+  public onSave = (): void => this.dialogRef.close("save");
 }
