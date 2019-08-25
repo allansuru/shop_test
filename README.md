@@ -11,32 +11,48 @@ Esse projeto trata-se de um pequeno demo "Adicionando um novo cartão de crédit
 - Testes automatizados na camada do State
 - Site Responsivo (Galaxy)
 
-# Imagens do Projeto
+# O Projeto
+
+Versão Desktop
 
 ![alt text](https://github.com/allansuru/shop_test/blob/master/server/images/tela_normal.png)
 
+Versão Mobile (Galaxy)
+
+![alt text](https://github.com/allansuru/shop_test/blob/master/server/images/versao_mobile.png)
+
 # Rodando o Projeto
 
-## Development server
+Clone o projeto e instale as dependências do mesmo.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+`https://github.com/allansuru/shop_test.git` e `npm i`
 
-## Code scaffolding
+Rode o comando abaixo para rodar o servidor:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+`npm run server`
+
+![alt text](https://github.com/allansuru/shop_test/blob/master/server/images/run_server.png)
+
+Após subir o server rode o comando abaixo:
+
+`npm start` e acessa a url: `http://localhost:4200/`
+
+Se desejar verificar as api's usadas no projeto, bastar acessar a url: `http://localhost:3000/`
+
+![alt text](https://github.com/allansuru/shop_test/blob/master/server/images/json_server.png)
+
+## Verificando o estado da Aplicação
+
+Recomendo usar o dev tools do chrome (https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=pt-BR), acessando o f12, conforme imagem abaixo:
+
+![alt text](https://github.com/allansuru/shop_test/blob/master/server/images/store_shop.png)
+
+## Testes integrados
+
+Rode o comando `ng test` [Karma](https://karma-runner.github.io). Os specs se encontrar em src/app/store
+
+![alt text](https://github.com/allansuru/shop_test/blob/master/server/images/karma.png)
 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).

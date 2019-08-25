@@ -8,7 +8,7 @@ export const CREATE_CREDIT_CARD_SUCCESS =
 
 export const GET_PAYMENT = "[PAYMENT] Get payment";
 export const GET_PAYMENT_FAIL = "[PAYMENT] Get payment Fail";
-export const GET_PAYMENT_SUCCESS = "[PAYMENT] Get payment Fail";
+export const GET_PAYMENT_SUCCESS = "[PAYMENT] Get payment Success";
 
 export const SHOW_VALUES_CARD = "[VALUES CARD] Show values at card";
 
