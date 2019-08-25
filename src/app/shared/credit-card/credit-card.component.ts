@@ -64,9 +64,9 @@ export class CreditCardComponent implements OnInit, OnDestroy {
 
   private getNewCreditCard = () =>
     this.subscription.add(
-      this.getNewCreditCard$.subscribe((card: CreditCard) => {
-        this.setCreditCard(card);
-      })
+      this.getNewCreditCard$.subscribe((card: CreditCard) =>
+        this.setCreditCard(card)
+      )
     );
 
   private setCreditCard = (card: CreditCard) => {

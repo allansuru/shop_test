@@ -12,15 +12,13 @@ const API_MOCK = "http://localhost:3000";
 export class ShopService {
   constructor(private http: HttpClient) {}
 
-  getPaymentsParceling(): Observable<Payment[]> {
-    return this.http
+  getPaymentsParceling = (): Observable<Payment[]> =>
+    this.http
       .get<Payment[]>(`${API_MOCK}/payment`)
       .pipe(catchError((error: any) => Observable.throwError(error.json())));
-  }
 
-  saveCreditCard(payload: CreditCard): Observable<CreditCard> {
-    return this.http
+  saveCreditCard = (payload: CreditCard): Observable<CreditCard> =>
+    this.http
       .post<CreditCard>(`${API_MOCK}/creditCard`, payload)
       .pipe(catchError((error: any) => Observable.throwError(error.json())));
-  }
 }

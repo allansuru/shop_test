@@ -15,7 +15,5 @@ export class NavigatorComponent {
 
   public getNavigatorStatus$ = this.store
     .pipe(select<ShopState, any, boolean>(selectFinish))
-    .subscribe(isFinish => {
-      this.isFinish = isFinish;
-    });
+    .subscribe(isFinish => (this.isFinish = isFinish));
 }
