@@ -1,1 +1,48 @@
-<router-outlet></router-outlet>
+<div class="content">
+    <div class="ui grid">
+        <div class="sixteen wide column">
+            <app-header></app-header>
+        </div>
+        <div class="five wide column">
+            <h4 class="forma-pagamento">
+                <i class="angle left icon"></i>Alterar a forma de pagamento
+            </h4>
+            <h4 class="forma-pagamento mobile">
+                <i class="angle left icon"></i><span class="mobile-phase">Etapa 2 </span><span class="mobile-phase-2">de
+                    3</span>
+            </h4>
+            <div class="container-title-card">
+                <h2 class="new-card-title">
+                    <i class="credit card icon"></i>Adicione um novo cartão de crédito
+                </h2>
+            </div>
+            <app-credit-card></app-credit-card>
+            <div class="container">
+                <ul>
+                    <li class="item">
+                        <a [routerLink]="['users/add']">
+                            Adicione um cliente
+                        </a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['card/add']">
+                            Adicione um cartao
+                        </a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['report/chart']">
+                            Charts
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+        <div class="eleven wide column">
+            <div class="elements">
+                <app-navigator></app-navigator>
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>
