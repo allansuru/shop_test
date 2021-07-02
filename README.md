@@ -9,7 +9,7 @@ Esse projeto trata-se de um pequeno demo "Adicionando um novo cartão de crédit
 - Angular Material
 - Redux (NGRX)
 - Testes automatizados na camada do State
-- Site Responsivo (Galaxy)
+- Site Responsivo
 
 # O Projeto
 
